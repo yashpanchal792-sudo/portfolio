@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yash Panchal — Social Media Executive</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --cream: #F5F0E8;
+            --surface: #FDFBF7;
+            --ink: #1A1814;
+            --warm-mid: #8C7B6B;
+            --accent-gold: #C9A84C;
+            --border: rgba(26, 24, 20, 0.12);
+            --fat: #E8522A;
+            --sonani: #B8962E;
+            --blanckanvas: #2A4B6E;
+            --horra: #1A1814;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5rem;
+            background: rgba(245, 240, 232, 0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 0.5px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--warm-mid);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        section {
+            padding: 2rem;
+        }
+
+        .section-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 3rem;
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--warm-mid);
+        }
+
+        .section-eyebrow::after {
+            content: "";
+            height: 0.5px;
+            flex: 1;
+            background: var(--border);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0 2.5rem 4rem;
+            overflow: hidden;
+            background: var(--ink);
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(90px, 18vw, 220px);
+            color: rgba(255, 255, 255, 0.03);
+            white-space: nowrap;
+        }
+
+        .hero-profile-image {
+            position: absolute;
+            right: 4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(201, 168, 76, 0.7);
+        }
+
+        .hero-profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-eyebrow {
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold);
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .hero-name {
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(55px, 10vw, 100px);
+            font-weight: 400;
+            line-height: 1;
+            color: #fff;
+        }
+
+        .hero-name span {
+            color: var(--accent-gold);
+        }
+
+        .hero-name em {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-desc {
+            max-width: 520px;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .hero-tag {
+            padding: 6px 13px;
+            border: 0.5px solid rgba(255, 255, 255, 0.25);
+            border-radius: 2px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: var(--surface);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-headline {
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(34px, 5vw, 52px);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        .about-headline em {
+            color: var(--warm-mid);
+        }
+
+        .about-body {
+            margin-bottom: 1rem;
+            color: var(--warm-mid);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            padding-top: 1rem;
+            border-top: 0.5px solid var(--border);
+        }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+        }
+
+        .stat-label {
+            margin-top: 4px;
+            color: var(--warm-mid);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tool-chip {
+            padding: 6px 12px;
+            border: 0.5px solid var(--border);
+            border-radius: 2px;
+            color: var(--warm-mid);
+            font-size: 12px;
+        }
+
+        .sample-work-section {
+            padding-bottom: 0;
+
+        }
+
+        .education {
+            padding-top: 1rem;
+        }
+
+        /* WORK */
+
+        .work {
+            background: var(--cream);
+        }
+
+        .brand-card {
+            margin-bottom: 3rem;
+            overflow: hidden;
+            border: 0.5px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 2rem;
+            border-bottom: 0.5px solid var(--border);
+        }
+
+        .brand-name {
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .brand-niche {
+            padding: 4px 10px;
+            border: 0.5px solid var(--border);
+            border-radius: 2px;
+            color: var(--warm-mid);
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .work-cell {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-right: 0.5px solid var(--border);
+            border-bottom: 0.5px solid var(--border);
+            background: #FAF8F5;
+        }
+
+        .work-cell:nth-child(3n) {
+            border-right: none;
+        }
+
+        .work-cell:nth-child(n+4) {
+            border-bottom: none;
+        }
+
+        .work-cell img,
+        .work-cell video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .work-cell a {
+            position: absolute;
+            inset: 0;
+        }
+
+        .work-cell-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 3;
+            padding: 4px 8px;
+            border-radius: 2px;
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .brand-desc {
+            padding: 1.25rem 2rem;
+            border-top: 0.5px solid var(--border);
+            color: var(--warm-mid);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .brand-sonani .brand-dot {
+            background: var(--sonani);
+        }
+
+        .brand-sonani .work-cell-tag {
+            background: #FDF3DC;
+            color: #8C6A1A;
+        }
+
+        .brand-fat .brand-dot {
+            background: var(--fat);
+        }
+
+        .brand-fat .work-cell-tag {
+            background: #FDE9E1;
+            color: #C9401A;
+        }
+
+        .brand-blanckanvas .brand-dot {
+            background: var(--blanckanvas);
+        }
+
+        .brand-blanckanvas .work-cell-tag {
+            background: #E3EDF8;
+            color: #1E3D5E;
+        }
+
+        .brand-horra .brand-dot {
+            background: var(--horra);
+        }
+
+        .brand-horra .work-cell-tag {
+            background: #E8E4DC;
+            color: #4A4640;
+        }
+
+        /* SAMPLE WORK */
+
+        .sample-work {
+            background: var(--surface);
+        }
+
+        .sample-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            border: 0.5px solid var(--border);
+        }
+
+        .sample-cell {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-right: 0.5px solid var(--border);
+            border-bottom: 0.5px solid var(--border);
+            background: #F4F0E8;
+        }
+
+        .sample-cell:nth-child(5n) {
+            border-right: none;
+        }
+
+        .sample-cell:nth-child(n+6) {
+            border-bottom: none;
+        }
+
+        .sample-cell img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sample-label {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            padding: 4px 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--ink);
+            font-size: 9px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* EDUCATION */
+
+        .education {
+            background: var(--cream);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .education-card {
+            padding: 2rem;
+            border: 0.5px solid var(--border);
+            background: var(--surface);
+        }
+
+        .education-year {
+            margin-bottom: 1rem;
+            color: var(--warm-mid);
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .education-title {
+            margin-bottom: 0.75rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            font-weight: 400;
+        }
+
+        .education-desc {
+            color: var(--warm-mid);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* EXPERIENCE */
+
+        .experience {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .experience .section-eyebrow {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .experience .section-eyebrow::after {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .exp-company {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .exp-role {
+            margin-bottom: 0.7rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+        }
+
+        .exp-desc {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .exp-date {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 12px;
+            text-align: right;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            padding: 6rem 2.5rem;
+            background: var(--surface);
+            text-align: center;
+        }
+
+        .contact-headline {
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 8vw, 80px);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .contact-headline em {
+            color: var(--warm-mid);
+        }
+
+        .contact-sub {
+            margin-bottom: 2.5rem;
+            color: var(--warm-mid);
+            font-size: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 5px;
+            border-bottom: 0.5px solid var(--border);
+            color: var(--ink);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 2.5rem;
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 11px;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 0 1.25rem;
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+            }
+
+            section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .hero {
+                padding: 0 1.25rem 3rem;
+            }
+
+            .hero-profile-image {
+                top: 110px;
+                right: 1.25rem;
+                width: 130px;
+                height: 130px;
+                transform: none;
+            }
+
+            .about-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .work-cell:nth-child(3n) {
+                border-right: 0.5px solid var(--border);
+            }
+
+            .work-cell:nth-child(2n) {
+                border-right: none;
+            }
+
+            .sample-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sample-cell:nth-child(5n) {
+                border-right: 0.5px solid var(--border);
+            }
+
+            .sample-cell:nth-child(2n) {
+                border-right: none;
+            }
+
+            .exp-item {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+
+            .exp-date {
+                text-align: left;
+            }
+
+            footer {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-logo">Yash Panchal</div>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#sample-work">Samples</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg-text">Social Media</div>
+
+        <div class="hero-profile-image">
+            <img src="images/profile.jpg" alt="Yash Panchal">
+        </div>
+
+        <div class="hero-eyebrow">Portfolio - 2025 . 2026</div>
+
+        <h1 class="hero-name">
+            <span>Yash</span> <em>Panchal</em>
+        </h1>
+
+        <p class="hero-desc">
+            Social media strategist and digital marketing specialist working across luxury, fashion, jewellery, FMCG,
+            food and education.
+        </p>
+
+        <div class="hero-tags">
+            <span class="hero-tag">Social Strategy</span>
+             <span class="hero-tag">Social Media Management</span>
+            <span class="hero-tag">Influencer Marketing</span>
+            <span class="hero-tag">Meta Ads</span>
+            <span class="hero-tag">Content Planning</span>
+            <span class="hero-tag">Campaign Management</span>
+            <span class="hero-tag">Performance Analytics</span>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="section-eyebrow">About</div>
+
+        <div class="about-grid">
+            <div>
+                <h2 class="about-headline">
+                    Building brands <em>one scroll at a time</em>
+                </h2>
+
+                <p class="about-body">
+                    Social media professional with 2+ years of experience across luxury, fashion, jewellery, FMCG, food,
+                    gaming and education.
+                </p>
+
+                <p class="about-body">
+                    From content calendars and campaign decks to influencer collaborations and real-time event coverage,
+                    I manage social media from strategy to execution.
+                </p>
+
+                <div class="stat-row">
+                    <div class="stat-box">
+                        <div class="stat-num">4–5</div>
+                        <div class="stat-label">Brands Managed</div>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-num">20+</div>
+                        <div class="stat-label">Influencer Collabs</div>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-num">2+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-num">6</div>
+                        <div class="stat-label">Sectors Covered</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-eyebrow" style="margin-bottom:1rem;">Tools & Platforms</div>
+
+                <div class="tools-list">
+                    <span class="tool-chip">Meta Ads</span>
+                    <span class="tool-chip">Google Ads</span>
+                    <span class="tool-chip">Google Analytics</span>
+                    <span class="tool-chip">CleverTap</span>
+                    <span class="tool-chip">Canva</span>
+                    <span class="tool-chip">Hootsuite</span>
+                    <span class="tool-chip">InShot</span>
+                     <span class="tool-chip">VN Studio</span>
+                    <span class="tool-chip">Ahrefs</span>
+                    <span class="tool-chip">ChatGPT</span>
+                    <span class="tool-chip">Claude</span>
+                    <span class="tool-chip">Gemini</span>
+                </div>
+
+                <div class="section-eyebrow" style="margin-top:2.5rem; margin-bottom:1rem;">Certifications</div>
+
+                <div class="tools-list">
+                    <span class="tool-chip">Google Digital Marketing</span>
+                    <span class="tool-chip">Google Analytics Basics</span>
+                    <span class="tool-chip">LinkedIn Social Media</span>
+                    <span class="tool-chip">Udemy Digital Marketing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WORK -->
+    <section class="work" id="work">
+        <div class="section-eyebrow">Selected Work</div>
+
+        <p style="font-size:13px; color:var(--warm-mid); margin-bottom:1.5rem; letter-spacing:0.02em;">
+            A selection of sample creatives, campaign ideas, social media designs, and content concepts.
+        </p>
+
+        <!-- SONANI JEWELLERY -->
+        <div class="brand-card brand-sonani">
+            <div class="brand-header">
+                <div class="brand-name"><span class="brand-dot"></span>Sonani Jewellery</div>
+                <span class="brand-niche">Jewellery</span>
+            </div>
+
+            <div class="work-grid" id="grid-sonani">
+                <div class="work-cell" data-brand="Sonani Jewellery" data-label="Reel Creative">
+                    <span class="work-cell-tag">Reels</span>
+                    <video src="images/sonani_reel.mp4" poster="images/sonani_reel_cover.png" controls muted playsinline
+                        loop></video>
+                    <div class="cell-overlay">
+                        <span class="hover-label">Play Reel</span>
+                    </div>
+                </div>
+
+                <div class="work-cell" data-brand="Sonani Jewellery" data-label="Static Post">
+                    <span class="work-cell-tag">Static</span>
+                    <a href="images/sonani_static.jpg" target="_blank">
+                        <img src="images/sonani_static.jpg" alt="Sonani Jewellery Static Post">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Sonani Jewellery" data-label="Content Grid">
+                    <span class="work-cell-tag">Grid Planning</span>
+                    <a href="images/sonani_grid.jpeg" target="_blank">
+                        <img src="images/sonani_grid.jpeg" alt="Sonani Jewellery Content Grid">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Sonani Jewellery" data-label="Influencer Creative">
+                    <span class="work-cell-tag">Influencer</span>
+                    <a href="images/sonani_influencer.PNG" target="_blank">
+                        <img src="images/sonani_influencer.PNG" alt="Sonani Jewellery Influencer Creative">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Sonani Jewellery" data-label="Pitch Deck">
+                    <span class="work-cell-tag">Pitch Deck</span>
+                    <a href="images/sonani_deck.pdf" target="_blank">
+                        <img src="images/sonani_deck_cover.png" alt="Sonani Jewellery Pitch Deck">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Sonani Jewellery" data-label="Content Calendar">
+                    <span class="work-cell-tag">Content Calendar</span>
+                    <a href="images/sonani_calender.png" target="_blank">
+                        <img src="images/sonani_calender.png" alt="Sonani Jewellery Content Calendar">
+                    </a>
+                </div>
+            </div>
+
+            <div class="brand-desc">
+                Luxury jewellery content focused on festive storytelling, product-led creatives, influencer
+                collaborations, and premium campaign planning.
+            </div>
+        </div>
+
+        <!-- FAT TUMMIES -->
+        <div class="brand-card brand-fat">
+            <div class="brand-header">
+                <div class="brand-name"><span class="brand-dot"></span>FatTummiess</div>
+                <span class="brand-niche">Food</span>
+            </div>
+
+            <div class="work-grid" id="grid-fat">
+                <div class="work-cell" data-brand="FatTummiess" data-label="Food Reel">
+                    <span class="work-cell-tag">Reels</span>
+                    <video src="images/fat_reel.mp4" poster="images/fat_cover3.jpeg" controls muted playsinline
+                        loop></video>
+                    <div class="cell-overlay">
+                        <span class="hover-label">Play Reel</span>
+                    </div>
+                </div>
+
+                <div class="work-cell" data-brand="FatTummiess" data-label="Static Post">
+                    <span class="work-cell-tag">Static</span>
+                    <a href="images/fat_static.jpeg" target="_blank">
+                        <img src="images/fat_static.jpeg" alt="FatTummiess Static Post">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="FatTummiess" data-label="Content Grid">
+                    <span class="work-cell-tag">Grid Planning</span>
+                    <a href="images/fat_grid.jpeg" target="_blank">
+                        <img src="images/fat_grid.jpeg" alt="FatTummiess Content Grid">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="FatTummiess" data-label="Restaurant Collaboration">
+                    <span class="work-cell-tag">Restaurant Collab</span>
+                    <video src="images/fat_reel2.mp4" poster="images/fat_cover2.jpeg" controls muted playsinline
+                        loop></video>
+                    <div class="cell-overlay">
+                        <span class="hover-label">Play Reel</span>
+                    </div>
+                </div>
+
+                <div class="work-cell" data-brand="FatTummiess" data-label="Instagram Insights">
+                    <span class="work-cell-tag">Insights</span>
+                    <a href="images/fat_insights.jpeg" target="_blank">
+                        <img src="images/fat_insights.jpeg" alt="FatTummiess Insights">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="FatTummiess" data-label="Food Carousel">
+                    <span class="work-cell-tag">Carousel</span>
+                    <a href="images/fat_carousel.jpeg" target="_blank">
+                        <img src="images/fat_carousel.jpeg" alt="FatTummiess Carousel">
+                    </a>
+                </div>
+            </div>
+
+            <div class="brand-desc">
+                Food-focused social content featuring restaurant reels, honest reviews, engaging carousels, and creator
+                collaborations.
+            </div>
+        </div>
+
+        <!-- BLANCKANVAS -->
+        <div class="brand-card brand-blanckanvas">
+            <div class="brand-header">
+                <div class="brand-name"><span class="brand-dot"></span>Blanckanvas Education</div>
+                <span class="brand-niche">Education</span>
+            </div>
+
+            <div class="work-grid" id="grid-blanckanvas">
+                <div class="work-cell" data-brand="Blanckanvas Education" data-label="Education Reel">
+                    <span class="work-cell-tag">Reels</span>
+                    <video src="images/black_reel.mp4" poster="images/black_reel_cover.png" controls muted playsinline
+                        loop></video>
+                    <div class="cell-overlay">
+                        <span class="hover-label">Play Reel</span>
+                    </div>
+                </div>
+
+                <div class="work-cell" data-brand="Blanckanvas Education" data-label="Static Post">
+                    <span class="work-cell-tag">Static</span>
+                    <a href="images/black_static.jpg" target="_blank">
+                        <img src="images/black_static.jpg" alt="Blanckanvas Education Static Post">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Blanckanvas Education" data-label="Carousel">
+                    <span class="work-cell-tag">Carousel</span>
+                    <a href="images/black_carousel.jpg.jpeg" target="_blank">
+                        <img src="images/black_carousel.jpg.jpeg" alt="Blanckanvas Education Carousel">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Blanckanvas Education" data-label="Static Grid">
+                    <span class="work-cell-tag">Static Carousel</span>
+                    <a href="images/black_static2.jpg.jpeg" target="_blank">
+                        <img src="images/black_static2.jpg.jpeg" alt="Blanckanvas Education Static Grid">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Blanckanvas Education" data-label="Portfolio Reel">
+                    <span class="work-cell-tag">Reels</span>
+                    <video src="images/black_portfolio.mp4" poster="images/black_reel2_cover.png" controls muted
+                        playsinline loop></video>
+                    <div class="cell-overlay">
+                        <span class="hover-label">Play Reel</span>
+                    </div>
+                </div>
+
+                <div class="work-cell" data-brand="Blanckanvas Education" data-label="Educational Creative">
+                    <span class="work-cell-tag">Static Post</span>
+                    <a href="images/black_static3.jpeg" target="_blank">
+                        <img src="images/black_static3.jpeg" alt="Blanckanvas Education Creative">
+                    </a>
+                </div>
+            </div>
+
+            <div class="brand-desc">
+                Education content built around informative posts, lead-generation campaigns, content calendars, and
+                new-business pitch decks for educational institutions.
+            </div>
+        </div>
+
+        <!-- HORRA -->
+        <div class="brand-card brand-horra">
+            <div class="brand-header">
+                <div class="brand-name"><span class="brand-dot"></span>Horra</div>
+                <span class="brand-niche">Luxury</span>
+            </div>
+
+            <div class="work-grid" id="grid-horra">
+                <div class="work-cell" data-brand="Horra" data-label="Luxury Reel">
+                    <span class="work-cell-tag">Reels</span>
+                    <video src="images/horra_reel2.MP4" poster="images/horra_reel_cover.PNG" controls muted playsinline
+                        loop></video>
+                    <div class="cell-overlay">
+                        <span class="hover-label">Play Reel</span>
+                    </div>
+                </div>
+
+                <div class="work-cell" data-brand="Horra" data-label="Luxury Static Post">
+                    <span class="work-cell-tag">Static Post</span>
+                    <a href="images/horra_static.png" target="_blank">
+                        <img src="images/horra_static.png" alt="Horra Static Post">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Horra" data-label="Fashion Creative">
+                    <span class="work-cell-tag">Static Post</span>
+                    <a href="images/horra_static2.JPG" target="_blank">
+                        <img src="images/horra_static2.JPG" alt="Horra Fashion Creative">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Horra" data-label="Luxury Campaign Creative">
+                    <span class="work-cell-tag">Static Post</span>
+                    <a href="images/horra_static4.JPG" target="_blank">
+                        <img src="images/horra_static4.JPG" alt="Horra Luxury Campaign Creative">
+                    </a>
+                </div>
+
+                <div class="work-cell" data-brand="Horra" data-label="Fashion Reel">
+                    <span class="work-cell-tag">Reels</span>
+                    <video src="images/horra_reel3.MP4" poster="images/horra_reel_cover2.jpg" controls muted playsinline
+                        loop></video>
+                    <div class="cell-overlay">
+                        <span class="hover-label">Play Reel</span>
+                    </div>
+                </div>
+
+                <div class="work-cell" data-brand="Horra" data-label="Luxury Grid">
+                    <span class="work-cell-tag">Static Grid</span>
+                    <a href="images/horra_static5.JPG" target="_blank">
+                        <img src="images/horra_static5.JPG" alt="Horra Luxury Grid">
+                    </a>
+                </div>
+            </div>
+
+            <div class="brand-desc">
+                Premium luxury social content built around minimal visuals, fashion-led storytelling, and high-impact
+                campaign execution.
+            </div>
+        </div>
+    </section>
+
+    <!-- SAMPLE WORK -->
+    <section class="work sample-work-section" id="sample-work">
+        <div class="section-eyebrow">Sample Work</div>
+
+        <p style="font-size:13px; color:var(--warm-mid);  margin-bottom:1.5rem; letter-spacing:0.02em;">
+            A selection of sample creatives, campaign ideas, social media designs, and content concepts.
+        </p>
+
+        <div class="brand-card">
+            <div class="brand-header">
+                <div class="brand-name"><span class="brand-dot" style="background:var(--accent-gold);"></span>Creative
+                    Showcase</div>
+                <span class="brand-niche">Sample Work</span>
+            </div>
+
+            <div class="work-grid sample-work-grid">
+                <div class="work-cell">
+                    <span class="work-cell-tag">Sample 01</span>
+
+                    <video src="images/black_reel4.MP4" poster="images/sample_cover1.png" controls muted playsinline
+                        loop>
+                    </video>
+
+                </div>
+
+
+                <div class="work-cell"><span class="work-cell-tag">Sample 02</span><img src="images/black_study.JPG"
+                        alt="Sample Work 2"></div>
+
+                <div class="work-cell">
+                    <span class="work-cell-tag">Sample 03</span>
+
+                    <video src="images/sample3.mp4" poster="images/sample_cover3.png" controls muted playsinline loop>
+                    </video>
+
+                </div>
+                <div class="work-cell"><span class="work-cell-tag">Sample 04</span><img src="images/sample7.png"
+                        alt="Sample Work 7"></div>
+                <div class="work-cell"><span class="work-cell-tag">Sample 05</span><img src="images/sample8.png"
+                        alt="Sample Work 8"></div>
+
+
+                <div class="work-cell">
+                    <span class="work-cell-tag">Sample 06</span>
+
+                    <video src="images/sample4.mp4" poster="images/sample_cover4.png" controls muted playsinline loop>
+                    </video>
+
+                </div>
+
+
+                <div class="work-cell">
+                    <span class="work-cell-tag">Sample 07</span>
+
+                    <video src="images/sample5.mp4" poster="images/sample_cover5.png" controls muted playsinline loop>
+                    </video>
+
+                </div>
+
+
+                <div class="work-cell">
+                    <span class="work-cell-tag">Sample 08</span>
+
+                    <video src="images/sample6.mp4" poster="images/sample_cover6.png" controls muted playsinline loop>
+                    </video>
+
+                </div>
+
+                <div class="work-cell"><span class="work-cell-tag">Sample 09</span><img src="images/sample9.png"
+                        alt="Sample Work 9"></div>
+                <div class="work-cell"><span class="work-cell-tag">Sample 10</span><img src="images/sample10.png"
+                        alt="Sample Work 10"></div>
+                <div class="work-cell"><span class="work-cell-tag">Sample 11</span><img src="images/sample11.PNG"
+                        alt="Sample Work 10"></div>
+                <div class="work-cell"><span class="work-cell-tag">Sample 12</span><img src="images/sample12.png"
+                        alt="Sample Work 10"></div>
+
+            </div>
+
+            <div class="brand-desc">
+                Sample content concepts created for different industries including food, fashion, luxury, lifestyle,
+                education, and local businesses.
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="education" id="education">
+        <div class="section-eyebrow">Education</div>
+
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-year">2022 – 2023</div>
+                <div class="education-title">MSc Management & Marketing</div>
+                <div class="education-desc">
+                    Birmingham City University, United Kingdom. Focused on marketing strategy, consumer behaviour,
+                    digital campaigns and brand management.
+                </div>
+            </div>
+
+            <div class="education-card">
+                <div class="education-year">2018 – 2021</div>
+                <div class="education-title">Bachelor of Management Studies</div>
+                <div class="education-desc">
+                    University of Mumbai. Graduated with 8.54 CGPA with a focus on marketing, advertising and business
+                    communication.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="section-eyebrow">Experience</div>
+
+        <div class="exp-item">
+            <div class="exp-company">
+                Blanckanvas Media<br>
+                Mumbai
+            </div>
+
+            <div>
+                <div class="exp-role">Social Media Executive</div>
+                <div class="exp-desc">
+                    Managing strategy and execution for 4–5 brands across luxury, jewellery, fashion, FMCG and
+                    education. Responsible for content planning, campaign ideation, influencer collaborations, brand
+                    shoots, social media calendars and real-time event coverage. Built influencer outreach and
+                    collaboration processes, managing 20+ barter and paid partnerships.
+                </div>
+            </div>
+
+            <div class="exp-date">Jun 2025 – Present</div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-company">
+                Playerzpot Media Pvt. Ltd.<br>
+                Mumbai
+            </div>
+
+            <div>
+                <div class="exp-role">Digital Marketer</div>
+                <div class="exp-desc">
+                    Managed social media content for a real-money gaming platform. Created IPL and sports-led campaigns,
+                    push notifications through CleverTap, social posts, engagement content and retention-focused
+                    communication. Worked closely with product and marketing teams to improve user engagement through
+                    timely content.
+                </div>
+            </div>
+
+            <div class="exp-date">Aug 2021 – Aug 2022</div>
+        </div>
+
+        <div class="exp-item" style="border-bottom:none;">
+            <div class="exp-company">
+                FatTummiess<br>
+                Instagram & Facebook
+            </div>
+
+            <div>
+                <div class="exp-role">Social Media Strategist</div>
+                <div class="exp-desc">
+                    Independently built and managed a food-focused social media page featuring restaurant reviews, food
+                    reels, captions, carousel posts and collaboration content. Worked with cafes and restaurants for
+                    barter collaborations while growing organic reach through engaging food storytelling and consistent
+                    content planning.
+                </div>
+            </div>
+
+            <div class="exp-date">2023 – Present</div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-eyebrow" style="justify-content:center; max-width:220px; margin:0 auto 2rem;">
+            Let's Work
+        </div>
+
+        <h2 class="contact-headline">
+            Got a brand that needs <em>a voice?</em>
+        </h2>
+
+        <p class="contact-sub">
+            Open to full-time roles, freelance projects and collaborations across Mumbai and beyond.
+        </p>
+
+        <div class="contact-links">
+            <a class="contact-link" href="mailto:yashpanchal792@gmail.com">
+                ✉ yashpanchal792@gmail.com
+            </a>
+
+            <a class="contact-link" href="tel:+917045626464">
+                ☎ +91 7045626464
+            </a>
+
+            <a class="contact-link" href="https://www.linkedin.com/in/yash-panchal-socialmediaexecutive"
+                target="_blank">
+                IN www.linkedin.com/in/yash-panchal-socialmediaexecutive
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <span>Yash Panchal © 2025</span>
+        <span>Mumbai, India</span>
+    </footer>
+
+</body>
+
+</html>
